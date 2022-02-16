@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+header {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+h2 {
+  margin: 10px 0;
+}
+p {
+  margin: 6px 0;
+}
+.hero-area {
+  display: flex;
+  width: 80%;
+  margin: auto;
+}
+.col-1 {
+  width: 50%;
+}
+#left {
+  padding-left: 50px;
+  border-radius: 10px;
+  background-color: #fde1a5;
+}
+.col-1 img {
+  width: 100%;
+}
+.input-style {
+  padding: 7px 17px;
+  border-radius: 10px;
+}
+#calculateIncome {
+  margin-top: 20px;
+  background-color: #ff7398;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 2px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+}
+#saveBtn {
+  margin-top: 20px;
+  background-color: #ff7398;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 15px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+}
