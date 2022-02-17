@@ -23,6 +23,7 @@ document
     expenses.innerText = foodValue + rentValue + clothesValue;
     // balance.innerText = incomeValue - expenses.innerText; /*====== menual ======*/
     balance.innerText = subtract(incomeValue, expenses.innerText);
+    /* ============= Error Hanling ============= */
     if (expenses.innerText > incomeValue) {
       alert("Please input your correct income / Expenses");
       balance.innerText = "Plz input correct icome";
@@ -57,11 +58,13 @@ document.getElementById("saveBtn").addEventListener("click", function () {
   // remainingBalance.innerText = balance.innerText - savings.innerText; /*== manual ==*/
   remainingBalance.innerText = subtract(balance.innerText, savings.innerText);
 
+  /* ============= Error Hanling ============= */
+
   if (remainingBalance.innerText < 0) {
-    alert("Please input your correct saving informationd.");
+    alert("Please input your correct savings informationd.");
     remainingBalance.innerText =
-      "Please input your correct saving informationd.";
+      "Please input your correct savings informationd.";
   } else if (saveAmount == "" || isNaN(saveAmount) || saveAmount <= 0) {
-    alert("Please input your correct saving informationd.");
+    alert("Please input your correct savings informationd.");
   }
 });
