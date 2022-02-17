@@ -1,59 +1,67 @@
+/* ============= Common Function ============= */
+function updateFields(itemId) {
+  const inputText = document.getElementById(itemId);
+  let inputTextValue = parseFloat(inputText.value);
+  return inputTextValue;
+}
+
+function subtract(num1, num2) {
+  return num1 - num2;
+}
+/* ============= start area ============= */
 document
   .getElementById("calculateIncome")
   .addEventListener("click", function () {
-    const income = document.getElementById("income");
     const balance = document.getElementById("balance");
-    const expenses = document.getElementById("expenses");
-    const food = document.getElementById("food");
-    const rent = document.getElementById("rent");
-    const clothes = document.getElementById("clothes");
+    const incomeValue = updateFields("income");
+    const foodValue = updateFields("food");
+    const rentValue = updateFields("rent");
+    const clothesValue = updateFields("clothes");
 
-    const incomeValue = parseFloat(income.value);
-    const foodValue = parseFloat(food.value);
-    const rentValue = parseFloat(rent.value);
-    const clothesValue = parseFloat(clothes.value);
+    const expenses = document.getElementById("expenses");
 
     expenses.innerText = foodValue + rentValue + clothesValue;
-    balance.innerText = incomeValue - expenses.innerText;
+    // balance.innerText = incomeValue - expenses.innerText; /*====== menual ======*/
+    balance.innerText = subtract(incomeValue, expenses.innerText);
     if (expenses.innerText > incomeValue) {
       alert("Please input your correct income / Expenses");
       balance.innerText = "Plz input correct icome";
     } else if (
-      income.value == "" ||
-      income.value == String ||
-      income.value <= 0 ||
-      food.value == "" ||
-      food.value == String ||
-      food.value < 0 ||
-      rent.value == "" ||
-      rent.value == String ||
-      rent.value < 0 ||
-      clothes.value == String ||
-      clothes.value == "" ||
-      clothes.value < 0
+      incomeValue == "" ||
+      isNaN(incomeValue) ||
+      incomeValue <= 0 ||
+      foodValue == "" ||
+      isNaN(foodValue) ||
+      foodValue < 0 ||
+      rentValue == "" ||
+      isNaN(rentValue) ||
+      rentValue < 0 ||
+      isNaN(clothesValue) ||
+      clothesValue == "" ||
+      clothesValue < 0
     ) {
       alert("Please input your correct informationd.");
+      balance.innerText = "Plz input correct value";
     }
   });
-/* ----------savings area------ */
+/* ============= saving area ============= */
 
 document.getElementById("saveBtn").addEventListener("click", function () {
-  const save = document.getElementById("savingAmount");
   const savings = document.getElementById("savings");
-  const income = document.getElementById("income");
   const balance = document.getElementById("balance");
   const remainingBalance = document.getElementById("remainingBalance");
 
-  const saveAmount = parseFloat(save.value);
-  const incomeValue = parseInt(income.value);
+  const saveAmount = updateFields("savingAmount");
+  const incomeValue = updateFields("income");
   savings.innerText = saveAmount * (incomeValue / 100);
-  remainingBalance.innerText = balance.innerText - savings.innerText;
+  // remainingBalance.innerText = balance.innerText - savings.innerText; /*== manual ==*/
+  remainingBalance.innerText = subtract(balance.innerText, savings.innerText);
 
   if (remainingBalance.innerText < 0) {
     alert("Please input your correct saving informationd.");
     remainingBalance.innerText =
       "Please input your correct saving informationd.";
-  } else if (save.value == "" || save.value == String || save.value < 0) {
+  } else if (saveAmount == "" || isNaN(saveAmount) || saveAmount <= 0) {
     alert("Please input your correct saving informationd.");
   }
 });
