@@ -17,6 +17,7 @@ p {
   display: flex;
   width: 80%;
   margin: auto;
+  align-items: center;
 }
 .col-1 {
   width: 50%;

@@ -10,6 +10,21 @@ document
 
     expenses.innerText = food + rent + clothes;
     balance.innerText = income - expenses.innerText;
+    if (expenses.innerText > income) {
+      alert("Please input your correct income");
+      balance.innerText = "Plz input correct icome";
+    } else if (
+      income == "" ||
+      income < 0 ||
+      food == "" ||
+      food < 0 ||
+      rent == "" ||
+      rent < 0 ||
+      clothes == "" ||
+      clothes < 0
+    ) {
+      alert("Please input your correct informationd.");
+    }
   });
 
 document.getElementById("saveBtn").addEventListener("click", function () {
@@ -19,6 +34,12 @@ document.getElementById("saveBtn").addEventListener("click", function () {
   const balance = document.getElementById("balance");
   const remainingBalance = document.getElementById("remainingBalance");
 
-  savings.innerText = income / saveAmount;
+  savings.innerText = saveAmount * (income / 100);
   remainingBalance.innerText = balance.innerText - savings.innerText;
+
+  // if (remainingBalance.innerText < 0) {
+  //   alert("Please input your correct saving informationd.");
+  //   remainingBalance.innerText =
+  //     "Please input your correct saving informationd.";
+  // }
 });
